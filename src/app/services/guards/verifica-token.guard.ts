@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { UsuarioService } from '../usuario/usuario.service';
+import { ProfesionalService } from '../profesional/profesional.service';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class VerificaTokenGuard implements CanActivate {
 
   constructor(
-    public _usuarioService: UsuarioService,
+    public _profesionalService: ProfesionalService,
     public router: Router
   ) { }
 
@@ -16,7 +16,7 @@ export class VerificaTokenGuard implements CanActivate {
 
     console.log('Token guard');
 
-    let token = this._usuarioService.token;
+    let token = this._profesionalService.token;
     let payload = JSON.parse( atob( token.split('.')[1] ));
 
     let expirado = this.expirado( payload.exp );
@@ -47,7 +47,7 @@ export class VerificaTokenGuard implements CanActivate {
         resolve(true);
       } else {
 
-        this._usuarioService.renuevaToken()
+        this._profesionalService.renuevaToken()
               .subscribe( () => {
                 resolve(true);
               }, () => {

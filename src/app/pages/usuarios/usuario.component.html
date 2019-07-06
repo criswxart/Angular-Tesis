@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="card-body">
+        <form  ngNativeValidate [formGroup]="formulario" (ngSubmit)="registrarUsuario()">
+            <div class="form-body">
+                <h3 class="card-title">Información personal</h3>
+                <hr>
+                <div class="row p-t-20">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Nombre</label>
+                            <input formControlName="nombre" name="nombre" required type="text" class="form-control" >
+                        </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                            <label class="control-label">Apellidos</label>
+                            <input formControlName="apellidos" name="apellidos" required type="text"  class="form-control form-control-danger" >
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <div class="row p-t-20">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Dirección</label>
+                                <input formControlName="direccion" name="direccion" required type="text" class="form-control" >
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="control-label">Teléfono</label>
+                                <input formControlName="telefono" name="telefono" required type="text" class="form-control form-control-danger" >
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                <!--/row-->
+                <div class="row">
+                    <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="control-label">Fecha de nacimiento</label>
+                                    <input formControlName="fechaNac" name="fechaNac" required type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                </div>
+                    </div>
+                    <!--/span-->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Fecha de ingreso</label>
+                            <input formControlName="fechaIngreso" name="fechaIngreso" type="date" class="form-control" placeholder="dd/mm/yyyy">
+                        </div>
+                    </div>
+                    <!--/span-->
+                </div>
+                <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group has-success">
+                                <label class="control-label">Sexo</label>
+                                <select formControlName="sexo" name="sexo" class="form-control custom-select">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                             </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="form-actions">
+                    <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
+                    <button type="button" class="btn btn-inverse">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+</div>

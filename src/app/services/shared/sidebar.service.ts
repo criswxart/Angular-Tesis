@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UsuarioService } from '../usuario/usuario.service';
+import { ProfesionalService } from '../profesional/profesional.service';
 
 @Injectable()
 export class SidebarService {
@@ -30,11 +30,11 @@ export class SidebarService {
   // ];
 
   constructor(
-    public _usuarioService: UsuarioService
+    public _profesionalService: ProfesionalService
   ) { }
 
   cargarMenu() {
-    this.menu = this._usuarioService.menu;
+    this.menu = this._profesionalService.menu;
   }
 
 }

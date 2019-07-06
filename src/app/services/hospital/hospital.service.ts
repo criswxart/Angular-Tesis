@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
-import { UsuarioService } from '../usuario/usuario.service';
+import { ProfesionalService } from '../profesional/profesional.service';
 import { Hospital } from '../../models/hospital.model';
 
 import swal from 'sweetalert';
@@ -13,7 +13,7 @@ export class HospitalService {
 
   constructor(
     public http: HttpClient,
-    public _usuarioService: UsuarioService
+    public _profesionalService: ProfesionalService
   ) { }
 
   cargarHospitales() {
@@ -38,7 +38,7 @@ export class HospitalService {
   borrarHospital( id: string ) {
 
     let url = URL_SERVICIOS + '/hospital/' + id;
-    url += '?token=' + this._usuarioService.token;
+    url += '?token=' + this._profesionalService.token;
 
     return this.http.delete( url )
                 .map( resp => swal('Hospital Borrado', 'Eliminado correctamente', 'success') );
@@ -48,7 +48,7 @@ export class HospitalService {
   crearHospital( nombre: string ) {
 
     let url = URL_SERVICIOS + '/hospital';
-    url += '?token=' + this._usuarioService.token;
+    url += '?token=' + this._profesionalService.token;
 
     return this.http.post( url, { nombre } )
               .map( (resp: any) => resp.hospital );
@@ -65,7 +65,7 @@ export class HospitalService {
   actualizarHospital( hospital: Hospital ) {
 
     let url = URL_SERVICIOS + '/hospital/' + hospital._id;
-    url += '?token=' + this._usuarioService.token;
+    url += '?token=' + this._profesionalService.token;
 
     return this.http.put( url, hospital )
               .map( (resp: any) => {

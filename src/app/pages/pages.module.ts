@@ -26,12 +26,23 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ProfesionalesComponent } from './profesionales/profesionales.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuarioComponent } from './usuarios/usuario.component';
+import { ProfesionalComponent } from './profesionales/profesional.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { TipointerComponent } from './tipointer/tipointer.component';
+import { IntervencionComponent } from './intervencion/intervencion.component';
+import { IntervencionesComponent } from './intervencion/intervenciones.component';
+import { PlanesComponent } from './planes/planes.component';
+import { PlanComponent } from './planes/plan.component';
+
 
 @NgModule({
     declarations: [
@@ -45,12 +56,21 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         PromesasComponent,
         RxjsComponent,
         ProfileComponent,
-        UsuariosComponent,
+        ProfesionalesComponent,
         // ModalUploadComponent,
         HospitalesComponent,
         MedicosComponent,
         MedicoComponent,
-        BusquedaComponent
+        BusquedaComponent,
+        UsuariosComponent,
+        UsuarioComponent,
+        ProfesionalComponent,
+        TipointerComponent,
+        IntervencionComponent,
+        IntervencionesComponent,
+        PlanesComponent,
+        PlanComponent
+        
     ],
     exports: [
         DashboardComponent,
@@ -63,7 +83,8 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         PAGES_ROUTES,
         FormsModule,
         ChartsModule,
-        PipesModule
+        PipesModule,
+        ReactiveFormsModule
     ]
 })
 export class PagesModule { }

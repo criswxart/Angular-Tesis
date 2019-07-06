@@ -14,12 +14,20 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginGuardGuard } from '../services/service.index';
 import { AdminGuard } from '../services/service.index';
 
-import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ProfesionalesComponent } from './profesionales/profesionales.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { VerificaTokenGuard } from '../services/guards/verifica-token.guard';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ProfesionalComponent } from './profesionales/profesional.component';
+import { UsuarioComponent } from './usuarios/usuario.component';
+import { TipointerComponent } from './tipointer/tipointer.component';
+import { IntervencionComponent } from './intervencion/intervencion.component';
+import { IntervencionesComponent } from './intervencion/intervenciones.component';
+import { PlanesComponent } from './planes/planes.component';
+import { PlanComponent } from './planes/plan.component';
 
 
 const pagesRoutes: Routes = [
@@ -36,16 +44,29 @@ const pagesRoutes: Routes = [
     { path: 'account-settings', component: AccoutSettingsComponent, data: { titulo: 'Ajustes de Tema' } },
     { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil de usuario' } },
     { path: 'busqueda/:termino', component: BusquedaComponent, data: { titulo: 'Buscador' } },
+    { path: 'intervenciones', component: IntervencionesComponent, data: { titulo: 'Intervención' } },
+    { path: 'intervencion/:id', component: IntervencionComponent, data: { titulo: 'Actualizar Intervención' } },
+
     // Mantenimientos
     {
-        path: 'usuarios',
-        component: UsuariosComponent,
+        path: 'profesionales',
+        component: ProfesionalesComponent,
         canActivate: [ AdminGuard ],
-        data: { titulo: 'Mantenimiento de Usuarios' }
+        data: { titulo: 'Mantenimiento de Profesionales' }
     },
-    { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de Hospitales' } },
+    {   path: 'profesionales/crear', 
+        component: ProfesionalComponent,
+        canActivate: [AdminGuard], 
+        data: { titulo: 'Crear Profesional' } 
+    },
     { path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos' } },
+    { path: 'planes', component: PlanesComponent, data: { titulo: 'Mantenimiento de Planes' } },
+    { path: 'planes/:id', component: PlanComponent, data: { titulo: 'Actualizar Plan' } },
+    { path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos' } },
+    { path: 'tipos', component: TipointerComponent, data: { titulo: 'Tipos de intervenciones' } },
     { path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Actualizar Médico' } },
+    { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de Usuarios' } },
+    { path: 'usuario/:id', component: UsuarioComponent, data: { titulo: 'Crear Usuarios' } },
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 

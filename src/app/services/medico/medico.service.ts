@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
-import { UsuarioService } from '../usuario/usuario.service';
+import { ProfesionalService } from '../profesional/profesional.service';
 import { Medico } from '../../models/medico.model';
 
 import swal from 'sweetalert';
@@ -13,7 +13,7 @@ export class MedicoService {
 
   constructor(
     public http: HttpClient,
-    public _usuarioService: UsuarioService
+    public _profesionalService: ProfesionalService
   ) { }
 
   cargarMedicos() {
@@ -49,7 +49,7 @@ export class MedicoService {
   borrarMedico( id: string ) {
 
     let url = URL_SERVICIOS + '/medico/' + id;
-    url += '?token=' + this._usuarioService.token;
+    url += '?token=' + this._profesionalService.token;
 
     return this.http.delete( url )
               .map( resp => {
@@ -66,7 +66,7 @@ export class MedicoService {
     if ( medico._id ) {
       // actualizando
       url += '/' + medico._id;
-      url += '?token=' + this._usuarioService.token;
+      url += '?token=' + this._profesionalService.token;
 
       return this.http.put( url, medico )
                 .map( (resp: any) => {
@@ -77,7 +77,7 @@ export class MedicoService {
 
     }else {
       // creando
-      url += '?token=' + this._usuarioService.token;
+      url += '?token=' + this._profesionalService.token;
       return this.http.post( url, medico )
               .map( (resp: any) => {
                 swal('Médico Creado', medico.nombre, 'success');

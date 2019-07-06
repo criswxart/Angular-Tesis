@@ -3,24 +3,46 @@
     <div class="col-lg-7">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Perfil del usuario</h4>
-                <h6 class="card-subtitle"> nombre usuario </h6>
+                <h4 class="card-title">Perfil del Profesional</h4>
+                <h6 class="card-subtitle"> nombre profesional </h6>
 
                 <form ngNativeValidate #f="ngForm" (ngSubmit)="guardar( f.value )" class="form p-t-20">
                     <div class="form-group">
                         <label for="exampleInputuname">Nombre de usuario</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-user"></i></div>
-                            <input [ngModel]="usuario.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre de usuario" required>
+                            <input [ngModel]="profesional.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre de usuario" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Apellidos</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input [ngModel]="profesional.apellidos" name="apellidos" type="text" class="form-control" placeholder="Apellido" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Especialidad</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class=" ti-book"></i></div>
+                            <input [ngModel]="profesional.especialidad" name="especialidad" type="text" class="form-control" placeholder="Correo del usuario" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Telefono</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-id-badge"></i></div>
+                            <input [ngModel]="profesional.telefono"  name="telefono" type="text" class="form-control" placeholder="Correo del usuario" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Correo de usuario</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-email"></i></div>
-                            <input [ngModel]="usuario.email" [disabled]="usuario.google" name="email" type="email" class="form-control" placeholder="Correo del usuario" required>
+                            <input [ngModel]="profesional.email"  name="email" type="email" class="form-control" placeholder="Correo del usuario" required>
                         </div>
                     </div>
+                    
 
                     <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
                       <i class="fa fa-save"></i>
@@ -35,10 +57,10 @@
     <div class="col-lg-5">
         <div class="card">
             <div class="card-body" align="center">
-                <h4 class="card-title">Fotografía del usuario</h4>
-                <h6 class="card-subtitle"> nombre usuario </h6>
+                <h4 class="card-title">Fotografía del profesional</h4>
+                <h6 class="card-subtitle"> nombre del profesional </h6>
 
-                <img *ngIf="!imagenTemp" [src]="usuario.img | imagen" class="w150">
+                <img *ngIf="!imagenTemp" [src]="profesional.img | imagen" class="w150">
                 <img *ngIf="imagenTemp" [src]="imagenTemp" class="w150">
 
                 <input (change)="seleccionImage($event.target.files[0])" type="file">

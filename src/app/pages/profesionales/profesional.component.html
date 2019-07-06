@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-lg-12">
+      <div class="card">
+          <div class="card-header bg-info">
+              <h4 class="m-b-0 text-white">Other Sample form</h4>
+          </div>
+          <div class="card-body">
+              <form ngNativeValidate [formGroup]="formulario" (ngSubmit)="registrarProfesional()">
+                  <div class="form-body">
+                      <h3 class="card-title">Formulario</h3>
+                      <hr>
+                      <div class="row p-t-20">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label class="control-label">Nombre</label>
+                                  <input  formControlName="nombre" name="nombre" required type="text"  class="form-control" >
+                              </div>
+                          </div>
+                          <!--/span-->
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label class="control-label">Apellidos</label>
+                                  <input formControlName="apellidos" name="apellidos" required type="text" class="form-control" >
+                              </div>
+                          </div>
+                          <!--/span-->
+                      </div>
+                      <div class="row p-t-20">
+                        <div class="col-md-6">
+                                <div class="form-group">
+                                        <label class="control-label">Especialidad</label>
+                                        <select formControlName="especialidad" name="especialidad" required class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                            <option value="Terapeuta Ocupacional">Terapeuta Ocupacional</option>
+                                            <option value="Psicólogo">Psicólogo</option>
+                                            <option value="Tec. en Rehabilitación">Tec. en Rehabilitación</option>
+                                            <option value="otro">otro</option>
+                                        </select>
+                                    </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="control-label">Teléfono</label>
+                                <input formControlName="telefono" name="telefono" required type="text" class="form-control form-control-danger" placeholder="+56988117755">
+                        </div>
+                        <!--/span-->
+                    </div>
+                    </div>
+                      <!--/row-->
+                      <div class="row p-t-20">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label class="control-label">Correo</label>
+                                  <input formControlName="email" name="email" required type="text" class="form-control" placeholder="ejemplo@ejemplo.cl">
+                                  <small class="form-control-feedback"> This is inline help </small> </div>
+                          </div>
+                          <!--/span-->
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label for="exampleInputpwd2"> Contraseña</label>
+                                  <div class="input-group">
+                                      <input formControlName="password" name="password" required type="password" class="form-control"  placeholder="Contraseña">
+                                      <div class="input-group-append">
+                                          <span class="input-group-text" id="basic-addon2">
+                                              <i class="ti-lock"></i>
+                                          </span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <!--/span-->
+                      </div>
+                      <!--/row-->
+                            <!--/row-->
+                            <div class="row">
+                              <div class="col-md-6">
+                                  <div class="form-group" >
+                                      <label for="exampleInputpwd2">Repetir contraseña</label>
+                                      <div class="input-group" >
+                                          <input formControlName="password2" name="password2" required type="password" class="form-control"  placeholder="Repetir">
+                                          <div class="input-group-append">
+                                              <span class="input-group-text" id="basic-addon2">
+                                                  <i class="ti-lock"></i>
+                                              </span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="form-group has-danger"  *ngIf="formulario.errors?.sonIguales && !formulario.pristine"> 
+                                      <small class="form-control-feedback"> Las contraseñas deben ser iguales </small>
+                                  </div> 
+                              </div> 
+                              
+                      </div>
+                  </div>
+                  <div class="form-actions">
+                      <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Guardar</button>
+                      <button type="button" class="btn btn-inverse">Cancelar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

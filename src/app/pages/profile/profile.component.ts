@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario.model';
-import { UsuarioService } from '../../services/service.index';
+import { Profesional } from '../../models/profesional.model';
+import { ProfesionalService } from '../../services/service.index';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-profile',
@@ -9,28 +10,30 @@ import { UsuarioService } from '../../services/service.index';
 })
 export class ProfileComponent implements OnInit {
 
-  usuario: Usuario;
+  profesional: Profesional;
 
   imagenSubir: File;
   imagenTemp: string;
 
   constructor(
-    public _usuarioService: UsuarioService
+    public _profesionalService: ProfesionalService
   ) {
-    this.usuario = this._usuarioService.usuario;
+    this.profesional = this._profesionalService.profesional;
   }
 
   ngOnInit() {
   }
 
-  guardar( usuario: Usuario ) {
+  guardar( profesional: Profesional ) {
 
-    this.usuario.nombre = usuario.nombre;
-    if ( !this.usuario.google ) {
-      this.usuario.email = usuario.email;
-    }
+    this.profesional.nombre = profesional.nombre;
+    this.profesional.apellidos = profesional.apellidos;
+    this.profesional.telefono = profesional.telefono;
+    this.profesional.especialidad = profesional.especialidad;
+    this.profesional.email = profesional.email;
 
-    this._usuarioService.actualizarUsuario( this.usuario )
+
+    this._profesionalService.actualizarProfesional( this.profesional )
                 .subscribe();
 
   }
@@ -59,7 +62,7 @@ export class ProfileComponent implements OnInit {
 
   cambiarImagen() {
 
-    this._usuarioService.cambiarImagen( this.imagenSubir, this.usuario._id );
+    this._profesionalService.cambiarImagen( this.imagenSubir, this.profesional._id );
 
   }
 

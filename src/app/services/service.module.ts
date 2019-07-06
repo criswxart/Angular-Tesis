@@ -7,13 +7,17 @@ import {
   SettingsService,
   SidebarService,
   SharedService,
-  UsuarioService,
   LoginGuardGuard,
   AdminGuard,
+  ProfesionalService,
   SubirArchivoService,
   HospitalService,
   MedicoService,
-  VerificaTokenGuard
+  VerificaTokenGuard,
+  UsuarioService,
+  TipointerService,
+  IntervencionService,
+  PlanService
  } from './service.index';
 
 
@@ -26,14 +30,18 @@ import {
     SettingsService,
     SidebarService,
     SharedService,
-    UsuarioService,
+    ProfesionalService,
     LoginGuardGuard,
     AdminGuard,
     SubirArchivoService,
     ModalUploadService,
     HospitalService,
     MedicoService,
-    VerificaTokenGuard
+    VerificaTokenGuard,
+    UsuarioService,
+    TipointerService,
+    IntervencionService,
+    PlanService
   ],
   declarations: []
 })

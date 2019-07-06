@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../../services/service.index';
-import { Usuario } from '../../models/usuario.model';
+import { ProfesionalService } from '../../services/service.index';
+import { Profesional } from '../../models/profesional.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,15 +10,15 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  usuario: Usuario;
+  profesional: Profesional;
 
   constructor(
-    public _usuarioService: UsuarioService,
+    public _profesionalService: ProfesionalService,
     public router: Router
   ) { }
 
   ngOnInit() {
-    this.usuario = this._usuarioService.usuario;
+    this.profesional = this._profesionalService.profesional;
   }
 
   buscar( termino: string ) {

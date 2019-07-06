@@ -1,0 +1,59 @@
+<div class="row animated fadeIn">
+
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Plan:</h3>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarPlan(f)">
+                        <div class="form-group">
+                            <label>Nombre del Plan</label>
+                            <input [(ngModel)]="plan.tipoPlan" name="tipoPlan" type="text" class="form-control" placeholder="Nombre del plan" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Objetivos</label>
+                            <input [(ngModel)]="plan.objetivos" name="objetivos" type="text" class="form-control" placeholder="Objetivos" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de inicio</label>
+                            <input [(ngModel)]="plan.fechaInicio" name="fechaInicio" type="date" class="form-control" placeholder="dd/mm/yyyy" required>                        
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de termino</label>
+                            <input [(ngModel)]="plan.fechaFin" name="fechaFin" required type="date" class="form-control" placeholder="dd/mm/yyyy" required>
+                        </div>
+                        <div class="form-group">
+                                <label>Observaciones</label>
+                                <input [(ngModel)]="plan.observaciones" name="observaciones" type="text" class="form-control" placeholder="Observaciones" required>
+                            </div>
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <input [(ngModel)]="plan.estado" name="estado" type="text" class="form-control" placeholder="Estado" required>
+                        </div>
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                          <i class="fa fa-save"></i>
+                          Guardar
+                        </button>
+                        <a routerLink="/planes" class="btn btn-inverse waves-effect waves-light">Cancelar</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card card-body">
+                <h4 class="box-title m-b-0"> Elección del Usuario:</h4>
+                <div class="form-group">
+                    <label>Usuarios</label>
+                    <select  [(ngModel)]="plan.usuario" name="usuario" class="form-control" required>
+                      <option value="">Seleccione al usuario</option>
+                      <option *ngFor="let usuario of usuarios" [value]="usuario._id">
+                        {{ usuario.nombre }}
+                      </option>
+                    </select>
+        </div>
+
+        </div>
+    </div>
+
+</div>

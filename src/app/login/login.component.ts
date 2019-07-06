@@ -1,8 +1,8 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioService } from '../services/service.index';
-import { Usuario } from '../models/usuario.model';
+import { ProfesionalService } from '../services/service.index';
+import { Profesional } from '../models/profesional.model';
 
 declare function init_plugins();
 declare const gapi: any;
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public _usuarioService: UsuarioService
+    public _profesionalService: ProfesionalService
   ) { }
 
   ngOnInit() {
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
       // let profile = googleUser.getBasicProfile();
       let token = googleUser.getAuthResponse().id_token;
 
-      this._usuarioService.loginGoogle( token )
+      this._profesionalService.loginGoogle( token )
               .subscribe( () => window.location.href = '#/dashboard'  );
 
     });
@@ -73,9 +73,9 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    let usuario = new Usuario(null, forma.value.email, forma.value.password );
+    let profesional = new Profesional (null,null,null,null, forma.value.email, forma.value.password );
 
-    this._usuarioService.login( usuario, forma.value.recuerdame )
+    this._profesionalService.login( profesional, forma.value.recuerdame )
                   .subscribe( correcto => this.router.navigate(['/dashboard'])  );
 
     // this.router.navigate([ '/dashboard' ]);
